@@ -1,15 +1,13 @@
 cmake_minimum_required(VERSION 3.31)
-project(TinyTracer VERSION 1.0)
+project(TinyTracer)
 
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
 
-if (NOT CMAKE_BUILD_TYPE)
-    set (CMAKE_BUILD_TYPE Release)
-endif ()
+add_executable(TinyTracer
+        main.cpp
+        src/vec3.h
+)
 
-set (CMAKE_CXX_FLAGS_RELEASE "-O3 -march=native -DNDEBUG")
-set (CMAKE_CXX_FLAGS_DEBUG "-g -O0 -Wall -Wextra")
-
-add_executable(TinyTracer main.cpp)
+add_executable(test_vec3
+        src/test_vec3.cpp
+)
