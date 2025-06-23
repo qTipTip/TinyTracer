@@ -1,8 +1,6 @@
 #include "src/monte_carlo.hpp"
 
-#include <chrono>
 #include <iostream>
-#include <random>
 
 
 int main() {
@@ -13,7 +11,7 @@ int main() {
         std::cout << "i = " << i << std::endl;
     }
 
-    monte_carlo_integral(0, 1, 100000);
+    monte_carlo_integral_uniform(0, 1, 100000);
 
     return 0;
 }

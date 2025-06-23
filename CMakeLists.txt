@@ -7,6 +7,7 @@ add_executable(TinyTracer
         main.cpp
         src/monte_carlo.hpp
         src/monte_carlo.cpp
+        main.hpp
 )
 
 
