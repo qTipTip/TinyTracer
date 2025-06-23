@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(TinyTracer
         main.cpp
+        src/monte_carlo.hpp
+        src/monte_carlo.cpp
 )
 
 
