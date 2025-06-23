@@ -5,9 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(TinyTracer
         main.cpp
-        src/vec3.h
 )
 
-add_executable(test_vec3
-        src/test_vec3.cpp
-)
+
+target_include_directories(TinyTracer PRIVATE src)
