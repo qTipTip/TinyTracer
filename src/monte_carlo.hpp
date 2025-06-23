@@ -1,8 +1,8 @@
 #pragma once
 
+#include "../tiny_tracer.hpp"
 #include <cstdint>
 
-#include "main.hpp"
 void monte_carlo_integral_uniform(float a, float b, int num_samples);
 
 template <typename Float = Float> // A template with a typename float. By default it is set to Float from main.hhp

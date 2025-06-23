@@ -1,9 +1,8 @@
 #include <chrono>
 #include <iostream>
 #include <random>
+#include "../tiny_tracer.hpp"
 #include "monte_carlo.hpp"
-
-#include <iso646.h>
 
 void monte_carlo_integral_uniform(float a, float b, int num_samples) {
     std::default_random_engine generator(std::chrono::system_clock::now().time_since_epoch().count());
@@ -11,15 +10,19 @@ void monte_carlo_integral_uniform(float a, float b, int num_samples) {
 
     // Estimates the integral of f(x) = x between a and b using num_samples number of samples.
     float sum = 0;
+    VarianceEstimator<float> estimator;
+
     for (int i = 0; i < num_samples; i++) {
         float x = distribution(generator);
+        estimator.Add(x);
         sum += x;
     }
 
     sum *= (b - a) / static_cast<float>(num_samples);
 
     std::cout << "Estimated integral: " << sum << std::endl;
-    std::cout << "Variance: " << sum << std::endl;
+    std::cout << "Estimated mean: " << estimator.Mean() << std::endl;
+    std::cout << "Estimated variance: " << estimator.Variance() << std::endl;
 }
 
 template<typename Float>
